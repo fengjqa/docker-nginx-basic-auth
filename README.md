@@ -11,6 +11,7 @@
 # Docker Nginx Basic Auth - Simple Authentication Proxy
 
 > Lightweight nginx reverse proxy with HTTP basic authentication for securing Docker containers and web applications.
+> WebSocket upgrade requests are forwarded, so applications such as Apache Flink's web UI can run behind the proxy.
 
 ## Quickstart
 
@@ -39,6 +40,9 @@ docker run -d \
 - `HTPASSWD` (default: `foo:$apr1$odHl5EJN$KbxMfo86Qdve2FH4owePn.`): Will be written to the .htpasswd file on launch (non-persistent)
 - `FORWARD_PORT` (default: `80`): Port of the **source** container that should be forwarded
 - `FORWARD_HOST` (default: `web`): Hostname of the **source** container that should be forwarded
+- `CLIENT_MAX_BODY_SIZE` (default: `1g`): Maximum accepted request body size
+- `LIMIT_CONN` (default: `20`): Maximum concurrent connections per client IP
+- `LIMIT_RATE` (default: `0`): Response rate limit per request; `0` disables rate limiting
   > The container does not need any volumes to be mounted! Nonetheless you will find all interesting files at `/etc/nginx/*`.
 
 ## Multiple Users
