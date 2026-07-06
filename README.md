@@ -43,6 +43,7 @@ docker run -d \
 - `CLIENT_MAX_BODY_SIZE` (default: `1g`): Maximum accepted request body size
 - `LIMIT_CONN` (default: `20`): Maximum concurrent connections per client IP
 - `LIMIT_RATE` (default: `0`): Response rate limit per request; `0` disables rate limiting
+- `NGINX_WORKER_PROCESSES` (default: `1`): Number of nginx worker processes
   > The container does not need any volumes to be mounted! Nonetheless you will find all interesting files at `/etc/nginx/*`.
 
 ## Multiple Users
